@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+overflow: hidden;
+}
+.container 
+{
+display: flex;
+justify-content: flex-end;
+align-items: center;
+min-height: 100vh;
+}
+.container img
+{ 
+    min-height:100%;
+    min-width:100%;
+    height:auto;
+    width:auto;
+    position:absolute;
+    top:-100%; bottom:-100%;
+    left:-100%; right:-100%;
+    margin:auto;
+}
+.container .nav
+{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+padding: 10px;
+background: white;
+}
+.container .nav span
+{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 10px 5px;
+    background: red;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+}
+.container .nav span.active
+{
+    border: 2px solid #000;
+    transform: scale(1.2);
+}
+.container .nav span.one,
+.container .nav i.one
+{
+    background:rgb(18, 128, 224);
+
+}
+.container .nav span.two,
+.container .nav i.two
+{
+    background:#bd1f36;
+}
+.container .nav span.three,
+.container .nav i.three
+{
+    background:#023436;
+}
+.container .nav span.four,
+.container .nav i.four
+{
+    background:orange;
+}
+.container .nav span.active + i
+{
+    position:absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    mix-blend-mode: hue;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+        <span class="one active" onclick="changecolor(event)"></span>
+        <i class="one"></i>
+        <span class="two"onclick="changecolor(event)"></span>
+        <i class="two"></i>
+        <span class="three"onclick="changecolor(event)"></span>
+        <i class="three"></i>
+        <span class="four"onclick="changecolor(event)"></span>
+        <i class="four"></i>
+        <img src="boy-music.jpg">
+        </div>
+    </div>
+<script>
+    function changecolor(event)
+    {
+        document.querySelectorAll ('span.active').forEach(function(item)
+        {
+            item.classList.remove('active')
+        })
+        event.target.classList.add('active')
+    }
+</script>
+</body>
+</html>
